@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistla Ganesh Karthikeya | Aspiring Software Developer & B.Tech CSE Student</title>
+    <meta name="description" content="Personal developer portfolio of Sistla Ganesh Karthikeya, a B.Tech Computer Science and Engineering student at NRI and an Aspiring Software Developer skilled in Python, HTML, and CSS." />
+    <meta name="keywords" content="Sistla Ganesh Karthikeya, Software Developer, B.Tech CSE, NRI, Python, HTML, CSS, Portfolio" />
+    <meta name="author" content="Sistla Ganesh Karthikeya" />
+
+    <!-- Google Fonts: Inter & JetBrains Mono for code/developer accents -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        primary: '#090D16',
+                        secondary: '#111827',
+                        accent: {
+                            DEFAULT: '#2563EB',
+                            light: '#38BDF8',
+                            dark: '#1D4ED8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons via CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom Base & Utility Styles */
+        body {
+            background-color: #090D16;
+            color: #F8FAFC;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Subtle Ambient Background Grid */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+        }
+
+        /* Glassmorphism Card Styling */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.74);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(56, 189, 248, 0.12);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 12px 32px -10px rgba(37, 99, 235, 0.22);
+        }
+
+        /* Typing Cursor Animation */
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.15em;
+            background-color: #38BDF8;
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blink 0.85s infinite;
+        }
+
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090D16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563EB;
+        }
+    </style>
+</head>
+<body class="bg-primary text-slate-100 antialiased selection:bg-accent selection:text-white">
+
+    <!-- Ambient Top Glow -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-accent/15 rounded-full blur-[130px]"></div>
+        <div class="absolute top-1/3 -right-40 w-96 h-96 bg-accent-light/10 rounded-full blur-[140px]"></div>
+    </div>
+
+    <!-- =====================================================================
+         A. NAVIGATION BAR (Sticky & Responsive)
+         ===================================================================== -->
+    <header id="navbar" class="sticky top-0 z-50 w-full transition-all duration-300 bg-primary/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                
+                <!-- Monogram Logo: GK -->
+                <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center text-white font-bold text-lg tracking-tighter shadow-lg shadow-accent/25 group-hover:scale-105 transition-transform">
+                        GK
+                    </div>
+                    <div class="hidden sm:block">
+                        <span class="font-semibold text-white tracking-tight block leading-none">Ganesh Karthikeya</span>
+                        <span class="text-[11px] font-mono text-gray-400">B.Tech CSE • Developer</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Primary Navigation">
+                    <a href="#home" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Home</a>
+                    <a href="#about" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors">About</a>
+                    <a href="#skills" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Skills</a>
+                    <a href="#projects" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Projects</a>
+                    <a href="#education" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Education</a>
+                    <a href="#contact" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Action Buttons: Direct Download & Mobile Menu Toggle -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <button id="downloadHtmlBtn" type="button" title="Download standalone index.html file"
+                        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium bg-secondary hover:bg-white/10 text-gray-200 border border-white/10 hover:border-accent/50 transition-all cursor-pointer">
+                        <i data-lucide="download" class="w-4 h-4 text-accent-light"></i>
+                        <span>Download HTML</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" type="button" aria-label="Toggle Menu" aria-expanded="false"
+                        class="md:hidden p-2.5 rounded-xl bg-secondary border border-white/10 text-gray-300 hover:text-white hover:border-accent/40 focus:outline-none">
+                        <i data-lucide="menu" id="menuIconOpen" class="w-5 h-5"></i>
+                        <i data-lucide="x" id="menuIconClose" class="w-5 h-5 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobileMenu" class="hidden md:hidden bg-secondary/95 backdrop-blur-xl border-b border-white/10 px-4 pt-2 pb-5 space-y-1">
+            <a href="#home" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-white/5 hover:text-accent-light">Home</a>
+            <a href="#about" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-white/5 hover:text-accent-light">About</a>
+            <a href="#skills" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-white/5 hover:text-accent-light">Skills</a>
+            <a href="#projects" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-white/5 hover:text-accent-light">Projects</a>
+            <a href="#education" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-white/5 hover:text-accent-light">Education</a>
+            <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-white/5 hover:text-accent-light">Contact</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 bg-grid-pattern">
+
+        <!-- =====================================================================
+             B. HERO SECTION
+             ===================================================================== -->
+        <section id="home" class="min-h-[calc(100vh-5rem)] flex items-center py-16 sm:py-24">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left Column: Intro, Typing Animation & CTAs -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <!-- Status Pill -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary border border-white/10 text-xs sm:text-sm text-gray-300">
+                            <span class="w-2 h-2 rounded-full bg-accent-light animate-pulse"></span>
+                            <span>Beginner / Student Developer • Open to Learning &amp; Internships</span>
+                        </div>
+
+                        <!-- Main Heading -->
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+                            Hi, I'm <span class="bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent">Sistla Ganesh Karthikeya</span>
+                        </h1>
+
+                        <!-- Subtitle -->
+                        <p class="text-lg sm:text-xl font-semibold text-gray-200">
+                            An Aspiring Software Developer <span class="text-accent-light mx-1">|</span> B.Tech CSE Student
+                        </p>
+
+                        <!-- Dynamic Typing Effect -->
+                        <div class="h-8 flex items-center justify-center lg:justify-start font-mono text-sm sm:text-base text-accent-light bg-secondary/70 border border-white/5 rounded-xl px-4 py-2 w-fit mx-auto lg:mx-0">
+                            <span class="text-gray-500 mr-2">&gt;_</span>
+                            <span id="typingText" class="font-medium"></span>
+                            <span class="typing-cursor"></span>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            Passionate about technology, programming, and building meaningful digital experiences. Currently learning and developing my skills in Python and Web Development.
+                        </p>
+
+                        <!-- Two CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-accent to-accent-light hover:from-accent-dark hover:to-accent shadow-lg shadow-accent/25 hover:-translate-y-0.5 transition-all">
+                                <span>Explore My Work</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                            <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-gray-200 bg-secondary hover:bg-white/10 border border-white/10 hover:border-white/20 hover:-translate-y-0.5 transition-all">
+                                <i data-lucide="mail" class="w-4 h-4 text-accent-light"></i>
+                                <span>Contact Me</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Professional Profile Image Placeholder Card -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-sm">
+                            <!-- Decorative Accent Glow Behind Card -->
+                            <div class="absolute -inset-1 bg-gradient-to-tr from-accent to-accent-light rounded-3xl blur-xl opacity-25"></div>
+                    <!-- Right Column: Developer Summary Card (Profile Photo Placeholder Removed) -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-sm">
+                            <!-- Decorative Accent Glow Behind Card -->
+                            <div class="absolute -inset-1 bg-gradient-to-tr from-accent to-accent-light rounded-3xl blur-xl opacity-25"></div>
+                            
+                            <div class="relative glass-card rounded-3xl p-6 sm:p-8 text-center">
+                                <!-- Clean Monogram Badge -->
+                                <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center text-white font-extrabold text-2xl tracking-tight shadow-lg shadow-accent/30">
+                                    GK
+                                </div>
+
+                                <!-- Identity Summary inside Card -->
+                                <div class="mt-6 space-y-1.5">
+                                    <h2 class="text-xl font-bold text-white">Sistla Ganesh Karthikeya</h2>
+                                    <p class="text-sm text-slate-300">B.Tech – Computer Science &amp; Engineering</p>
+                                    <p class="text-xs font-mono text-accent-light pt-1">@ NRI</p>
+                                </div>
+
+                                <!-- Core Focus Badges -->
+                                <div class="mt-6 pt-5 border-t border-white/10 flex flex-wrap justify-center gap-2">
+                                    <span class="px-3 py-1 rounded-lg bg-primary text-xs font-mono text-slate-300 border border-white/10">Python</span>
+                                    <span class="px-3 py-1 rounded-lg bg-primary text-xs font-mono text-slate-300 border border-white/10">HTML5</span>
+                                    <span class="px-3 py-1 rounded-lg bg-primary text-xs font-mono text-slate-300 border border-white/10">CSS3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             C. ABOUT ME SECTION
+             ===================================================================== -->
+        <section id="about" class="py-20 sm:py-28 border-t border-white/5">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                
+                <!-- Section Header -->
+                <div class="max-w-2xl mb-12">
+                    <span class="text-xs font-mono uppercase tracking-widest text-accent-light">01. Introduction</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">About Me</h2>
+                    <div class="w-14 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full mt-4"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Narrative Bio -->
+                    <div class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                        <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+                            I'm <strong class="text-white font-semibold">Sistla Ganesh Karthikeya</strong>, a Computer Science and Engineering student at <strong class="text-white font-semibold">NRI</strong>. I'm passionate about programming, technology, and software development. I enjoy exploring new technologies, improving my coding skills, and creating projects that solve real-world problems.
+                        </p>
+                        <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+                            My goal is to become a skilled software engineer and continuously grow as a developer.
+                        </p>
+
+                        <div class="pt-4 flex items-center gap-3 text-sm text-gray-400 font-mono">
+                            <i data-lucide="terminal" class="w-4 h-4 text-accent-light"></i>
+                            <span>Focused on building strong fundamentals in programming &amp; web technologies.</span>
+                        </div>
+                    </div>
+
+                    <!-- Information Cards Grid -->
+                    <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="glass-card rounded-2xl p-5">
+                            <div class="w-9 h-9 rounded-xl bg-accent/15 text-accent-light flex items-center justify-center mb-3">
+                                <i data-lucide="id-card" class="w-5 h-5"></i>
+                            </div>
+                            <p class="text-xs font-mono uppercase text-gray-400">Name</p>
+                            <p class="text-sm sm:text-base font-semibold text-white mt-1">Sistla Ganesh Karthikeya</p>
+                        </div>
+
+                        <div class="glass-card rounded-2xl p-5">
+                            <div class="w-9 h-9 rounded-xl bg-accent/15 text-accent-light flex items-center justify-center mb-3">
+                                <i data-lucide="building-2" class="w-5 h-5"></i>
+                            </div>
+                            <p class="text-xs font-mono uppercase text-gray-400">College</p>
+                            <p class="text-sm sm:text-base font-semibold text-white mt-1">NRI</p>
+                        </div>
+
+                        <div class="glass-card rounded-2xl p-5">
+                            <div class="w-9 h-9 rounded-xl bg-accent/15 text-accent-light flex items-center justify-center mb-3">
+                                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                            </div>
+                            <p class="text-xs font-mono uppercase text-gray-400">Degree</p>
+                            <p class="text-sm sm:text-base font-semibold text-white mt-1">B.Tech CSE</p>
+                        </div>
+
+                        <div class="glass-card rounded-2xl p-5">
+                            <div class="w-9 h-9 rounded-xl bg-accent/15 text-accent-light flex items-center justify-center mb-3">
+                                <i data-lucide="code-2" class="w-5 h-5"></i>
+                            </div>
+                            <p class="text-xs font-mono uppercase text-gray-400">Role</p>
+                            <p class="text-sm sm:text-base font-semibold text-white mt-1">Aspiring Developer</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             D. TECHNICAL SKILLS & E. LANGUAGES KNOWN SECTION
+             ===================================================================== -->
+        <section id="skills" class="py-20 sm:py-28 border-t border-white/5">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                
+                <!-- Section Header -->
+                <div class="max-w-2xl mb-12">
+                    <span class="text-xs font-mono uppercase tracking-widest text-accent-light">02. Capabilities</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Technical Skills</h2>
+                    <p class="text-gray-400 mt-3">Current core technologies along with dedicated slots for upcoming tools as I expand my developer stack.</p>
+                    <div class="w-14 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full mt-4"></div>
+                </div>
+
+                <!-- 3 Skill Categories -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Category 1: Programming Languages -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-accent/15 text-accent-light flex items-center justify-center">
+                                    <i data-lucide="cpu" class="w-5 h-5"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white">Programming Languages</h3>
+                            </div>
+
+                            <div class="space-y-4">
+                                <!-- Python -->
+                                <div class="p-4 rounded-xl bg-primary/80 border border-white/5 hover:border-accent/40 transition-colors">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-semibold text-white">Python</span>
+                                        <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-accent/15 text-accent-light border border-accent/30">Beginner / Learning</span>
+                                    </div>
+                                    <div class="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-accent to-accent-light rounded-full w-2/5"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Future Slot -->
+                                <div class="p-4 rounded-xl bg-primary/40 border border-dashed border-white/10">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-400 font-mono">+ Future Addition</span>
+                                        <span class="text-[11px] text-gray-500">e.g., JavaScript, C, Java</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Frontend Development -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-accent/15 text-accent-light flex items-center justify-center">
+                                    <i data-lucide="layout" class="w-5 h-5"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white">Frontend Development</h3>
+                            </div>
+
+                            <div class="space-y-4">
+                                <!-- HTML -->
+                                <div class="p-4 rounded-xl bg-primary/80 border border-white/5 hover:border-accent/40 transition-colors">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-semibold text-white">HTML</span>
+                                        <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-accent/15 text-accent-light border border-accent/30">Beginner / Intermediate</span>
+                                    </div>
+                                    <div class="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-accent to-accent-light rounded-full w-1/2"></div>
+                                    </div>
+                                </div>
+
+                                <!-- CSS -->
+                                <div class="p-4 rounded-xl bg-primary/80 border border-white/5 hover:border-accent/40 transition-colors">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-semibold text-white">CSS</span>
+                                        <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-accent/15 text-accent-light border border-accent/30">Beginner / Intermediate</span>
+                                    </div>
+                                    <div class="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-accent to-accent-light rounded-full w-1/2"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Future Slot -->
+                                <div class="p-4 rounded-xl bg-primary/40 border border-dashed border-white/10">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-400 font-mono">+ Future Addition</span>
+                                        <span class="text-[11px] text-gray-500">e.g., JavaScript, React</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Tools & Technologies -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-accent/15 text-accent-light flex items-center justify-center">
+                                    <i data-lucide="wrench" class="w-5 h-5"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white">Tools &amp; Technologies</h3>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="p-4 rounded-xl bg-primary/80 border border-white/5">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="font-semibold text-white">VS Code &amp; Web Browsers</span>
+                                        <span class="text-xs font-mono text-gray-400">Active</span>
+                                    </div>
+                                    <p class="text-xs text-gray-400">Code editing, debugging &amp; responsive layout testing.</p>
+                                </div>
+
+                                <!-- Future Slot: Git & GitHub -->
+                                <div class="p-4 rounded-xl bg-primary/40 border border-dashed border-white/10">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-sm text-gray-300 font-mono">+ Upcoming Stack</span>
+                                        <span class="text-[11px] px-2 py-0.5 rounded bg-white/5 text-gray-400">Planned</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Space reserved for Git, GitHub, and modern frameworks.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- E. LANGUAGES KNOWN -->
+                <div class="mt-16">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2.5">
+                        <i data-lucide="languages" class="w-5 h-5 text-accent-light"></i>
+                        <span>Languages Known</span>
+                    </h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                        <!-- Telugu -->
+                        <div class="glass-card rounded-2xl p-5 flex items-center justify-between">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-accent/15 text-accent-light font-bold flex items-center justify-center text-base">
+                                    తె
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Telugu</h4>
+                                    <p class="text-xs text-gray-400">Native / Primary</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-mono bg-accent/15 text-accent-light border border-accent/30">
+                                Fluent
+                            </span>
+                        </div>
+
+                        <!-- Hindi -->
+                        <div class="glass-card rounded-2xl p-5 flex items-center justify-between">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-white/5 text-gray-200 font-bold flex items-center justify-center text-base">
+                                    हि
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Hindi</h4>
+                                    <p class="text-xs text-gray-400">Spoken &amp; Comprehension</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-mono bg-white/5 text-gray-300 border border-white/10">
+                                Conversational
+                            </span>
+                        </div>
+
+                        <!-- English -->
+                        <div class="glass-card rounded-2xl p-5 flex items-center justify-between">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-white/5 text-gray-200 font-bold flex items-center justify-center text-base">
+                                    En
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">English</h4>
+                                    <p class="text-xs text-gray-400">Academic &amp; Technical</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-mono bg-white/5 text-gray-300 border border-white/10">
+                                Conversational
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             F. PROJECTS SECTION (Clearly Labelled Placeholders)
+             ===================================================================== -->
+        <section id="projects" class="py-20 sm:py-28 border-t border-white/5">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-accent-light">03. Portfolio Showcase</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Projects</h2>
+                        <div class="w-14 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full mt-4"></div>
+                    </div>
+                    <p class="text-sm text-gray-400 max-w-md">
+                        Placeholder project slots prepared for upcoming Python and Web Development builds. Replace these cards as projects are completed.
+                    </p>
+                </div>
+
+                <!-- Project Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Placeholder Project 1 -->
+                    <article class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+                        <div>
+                            <!-- Thumbnail Placeholder -->
+                            <div class="h-44 bg-gradient-to-br from-secondary via-primary to-secondary border-b border-white/5 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+                                <span class="absolute top-3 right-3 px-2.5 py-1 rounded-md text-[11px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                                    Placeholder Slot 01
+                                </span>
+                                <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-light group-hover:scale-110 transition-transform">
+                                    <i data-lucide="folder-code" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-xs font-mono text-gray-500 mt-2">Project Thumbnail Placeholder</span>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-white group-hover:text-accent-light transition-colors">
+                                    [Placeholder] Python Mini Project
+                                </h3>
+                                <p class="text-sm text-gray-400 mt-2 leading-relaxed">
+                                    Reserved slot for an upcoming Python application. Add a clear summary of the problem solved, core logic, and features once built.
+                                </p>
+
+                                <!-- Technologies -->
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="px-2.5 py-1 rounded-md bg-primary text-xs font-mono text-gray-300 border border-white/5">Python</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-primary text-xs font-mono text-gray-500 border border-dashed border-white/10">+ Tech Stack</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons (Honest Placeholder Feedback) -->
+                        <div class="px-6 pb-6 pt-2 flex items-center gap-3">
+                            <button type="button" data-project="Python Mini Project" class="placeholder-project-btn flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-accent/15 hover:bg-accent text-accent-light hover:text-white border border-accent/30 transition-all cursor-pointer">
+                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                <span>View Project</span>
+                            </button>
+                            <button type="button" data-project="Python Mini Project" class="placeholder-project-btn flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-primary hover:bg-white/10 text-gray-300 border border-white/10 transition-all cursor-pointer">
+                                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                                <span>GitHub</span>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Placeholder Project 2 -->
+                    <article class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+                        <div>
+                            <!-- Thumbnail Placeholder -->
+                            <div class="h-44 bg-gradient-to-br from-secondary via-primary to-secondary border-b border-white/5 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+                                <span class="absolute top-3 right-3 px-2.5 py-1 rounded-md text-[11px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                                    Placeholder Slot 02
+                                </span>
+                                <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-light group-hover:scale-110 transition-transform">
+                                    <i data-lucide="globe" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-xs font-mono text-gray-500 mt-2">Project Thumbnail Placeholder</span>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-white group-hover:text-accent-light transition-colors">
+                                    [Placeholder] Responsive Web Page
+                                </h3>
+                                <p class="text-sm text-gray-400 mt-2 leading-relaxed">
+                                    Reserved slot for a frontend web project built with semantic HTML and modern CSS layouts. Update with live demo details when ready.
+                                </p>
+
+                                <!-- Technologies -->
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="px-2.5 py-1 rounded-md bg-primary text-xs font-mono text-gray-300 border border-white/5">HTML</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-primary text-xs font-mono text-gray-300 border border-white/5">CSS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="px-6 pb-6 pt-2 flex items-center gap-3">
+                            <button type="button" data-project="Responsive Web Page" class="placeholder-project-btn flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-accent/15 hover:bg-accent text-accent-light hover:text-white border border-accent/30 transition-all cursor-pointer">
+                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                <span>View Project</span>
+                            </button>
+                            <button type="button" data-project="Responsive Web Page" class="placeholder-project-btn flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-primary hover:bg-white/10 text-gray-300 border border-white/10 transition-all cursor-pointer">
+                                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                                <span>GitHub</span>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Placeholder Project 3 -->
+                    <article class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+                        <div>
+                            <!-- Thumbnail Placeholder -->
+                            <div class="h-44 bg-gradient-to-br from-secondary via-primary to-secondary border-b border-white/5 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+                                <span class="absolute top-3 right-3 px-2.5 py-1 rounded-md text-[11px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                                    Placeholder Slot 03
+                                </span>
+                                <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-light group-hover:scale-110 transition-transform">
+                                    <i data-lucide="layers" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-xs font-mono text-gray-500 mt-2">Project Thumbnail Placeholder</span>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-white group-hover:text-accent-light transition-colors">
+                                    [Placeholder] Future Full-Stack App
+                                </h3>
+                                <p class="text-sm text-gray-400 mt-2 leading-relaxed">
+                                    Reserved slot for an upcoming B.Tech CSE academic or personal software project. Easily customizable inside index.html.
+                                </p>
+
+                                <!-- Technologies -->
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="px-2.5 py-1 rounded-md bg-primary text-xs font-mono text-gray-300 border border-white/5">Python</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-primary text-xs font-mono text-gray-300 border border-white/5">HTML/CSS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="px-6 pb-6 pt-2 flex items-center gap-3">
+                            <button type="button" data-project="Future Full-Stack App" class="placeholder-project-btn flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-accent/15 hover:bg-accent text-accent-light hover:text-white border border-accent/30 transition-all cursor-pointer">
+                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                <span>View Project</span>
+                            </button>
+                            <button type="button" data-project="Future Full-Stack App" class="placeholder-project-btn flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-primary hover:bg-white/10 text-gray-300 border border-white/10 transition-all cursor-pointer">
+                                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                                <span>GitHub</span>
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             G. EDUCATION SECTION
+             ===================================================================== -->
+        <section id="education" class="py-20 sm:py-28 border-t border-white/5">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                
+                <!-- Section Header -->
+                <div class="max-w-2xl mb-12">
+                    <span class="text-xs font-mono uppercase tracking-widest text-accent-light">04. Academic Background</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Education</h2>
+                    <div class="w-14 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full mt-4"></div>
+                </div>
+
+                <!-- Modern Timeline Card -->
+                <div class="relative pl-8 sm:pl-10 border-l-2 border-accent/40 space-y-8 max-w-3xl">
+                    <div class="relative glass-card rounded-2xl p-6 sm:p-8">
+                        <!-- Timeline Node -->
+                        <span class="absolute -left-[41px] sm:-left-[49px] top-8 w-4 h-4 rounded-full bg-accent ring-4 ring-primary"></span>
+
+                        <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-accent/15 text-accent-light border border-accent/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-accent-light animate-pulse"></span>
+                                Currently Pursuing
+                            </span>
+                            <span class="text-xs font-mono text-gray-400">Undergraduate Degree</span>
+                        </div>
+
+                        <h3 class="text-xl sm:text-2xl font-bold text-white">NRI</h3>
+                        <p class="text-base sm:text-lg font-medium text-gray-200 mt-1">
+                            Bachelor of Technology (B.Tech)
+                        </p>
+                        <p class="text-sm sm:text-base text-gray-400 mt-1">
+                            Branch: <span class="text-gray-200">Computer Science and Engineering</span>
+                        </p>
+
+                        <div class="mt-5 pt-5 border-t border-white/10 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-lg bg-primary text-xs text-gray-300 border border-white/5">Computer Science Fundamentals</span>
+                            <span class="px-3 py-1 rounded-lg bg-primary text-xs text-gray-300 border border-white/5">Programming &amp; Problem Solving</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             H. CONTACT SECTION
+             ===================================================================== -->
+        <section id="contact" class="py-20 sm:py-28 border-t border-white/5">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                
+                <!-- Section Header -->
+                <div class="max-w-2xl mb-12">
+                    <span class="text-xs font-mono uppercase tracking-widest text-accent-light">05. Get In Touch</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Let's Connect</h2>
+                    <p class="text-gray-400 mt-3">Have a question, project idea, or learning opportunity? Send a message using the form below.</p>
+                    <div class="w-14 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full mt-4"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-8">
+                        <form id="contactForm" novalidate class="space-y-5">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your name"
+                                    class="w-full px-4 py-3 rounded-xl bg-primary border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent-light focus:ring-1 focus:ring-accent-light transition-colors" />
+                                <p id="nameError" class="hidden text-xs text-accent-light mt-1.5">Please enter your name.</p>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="Enter your email address"
+                                    class="w-full px-4 py-3 rounded-xl bg-primary border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent-light focus:ring-1 focus:ring-accent-light transition-colors" />
+                                <p id="emailError" class="hidden text-xs text-accent-light mt-1.5">Please enter a valid email address.</p>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="4" required placeholder="Write your message here..."
+                                    class="w-full px-4 py-3 rounded-xl bg-primary border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent-light focus:ring-1 focus:ring-accent-light transition-colors resize-none"></textarea>
+                                <p id="messageError" class="hidden text-xs text-accent-light mt-1.5">Please enter a message (at least 10 characters).</p>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-accent to-accent-light hover:from-accent-dark hover:to-accent shadow-lg shadow-accent/25 transition-all cursor-pointer">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <span>Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Social & Direct Info Placeholders -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="glass-card rounded-2xl p-6">
+                            <h3 class="text-lg font-bold text-white mb-2">Social &amp; Contact Placeholders</h3>
+                            <p class="text-xs text-gray-400 mb-5">Update these placeholder links with your official handles in <code class="text-gray-300">index.html</code>.</p>
+
+                            <div class="space-y-3">
+                                <!-- Email Placeholder -->
+                                <button type="button" data-social="Email" class="social-placeholder-btn w-full flex items-center justify-between p-3.5 rounded-xl bg-primary/80 hover:bg-white/5 border border-white/10 hover:border-accent/40 transition-all text-left cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-lg bg-accent/15 text-accent-light flex items-center justify-center">
+                                            <i data-lucide="mail" class="w-4 h-4"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-semibold text-white">Email</p>
+                                            <p class="text-xs font-mono text-gray-400">[Placeholder: Add your email]</p>
+                                        </div>
+                                    </div>
+                                    <i data-lucide="arrow-up-right" class="w-4 h-4 text-gray-500"></i>
+                                </button>
+
+                                <!-- LinkedIn Placeholder -->
+                                <button type="button" data-social="LinkedIn" class="social-placeholder-btn w-full flex items-center justify-between p-3.5 rounded-xl bg-primary/80 hover:bg-white/5 border border-white/10 hover:border-accent/40 transition-all text-left cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-lg bg-accent/15 text-accent-light flex items-center justify-center">
+                                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-semibold text-white">LinkedIn</p>
+                                            <p class="text-xs font-mono text-gray-400">[Placeholder: LinkedIn URL]</p>
+                                        </div>
+                                    </div>
+                                    <i data-lucide="arrow-up-right" class="w-4 h-4 text-gray-500"></i>
+                                </button>
+
+                                <!-- GitHub Placeholder -->
+                                <button type="button" data-social="GitHub" class="social-placeholder-btn w-full flex items-center justify-between p-3.5 rounded-xl bg-primary/80 hover:bg-white/5 border border-white/10 hover:border-accent/40 transition-all text-left cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-lg bg-accent/15 text-accent-light flex items-center justify-center">
+                                            <i data-lucide="github" class="w-4 h-4"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-semibold text-white">GitHub</p>
+                                            <p class="text-xs font-mono text-gray-400">[Placeholder: GitHub URL]</p>
+                                        </div>
+                                    </div>
+                                    <i data-lucide="arrow-up-right" class="w-4 h-4 text-gray-500"></i>
+                                </button>
+
+                                <!-- Instagram Placeholder -->
+                                <button type="button" data-social="Instagram" class="social-placeholder-btn w-full flex items-center justify-between p-3.5 rounded-xl bg-primary/80 hover:bg-white/5 border border-white/10 hover:border-accent/40 transition-all text-left cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-lg bg-accent/15 text-accent-light flex items-center justify-center">
+                                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-semibold text-white">Instagram</p>
+                                            <p class="text-xs font-mono text-gray-400">[Placeholder: Instagram URL]</p>
+                                        </div>
+                                    </div>
+                                    <i data-lucide="arrow-up-right" class="w-4 h-4 text-gray-500"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =====================================================================
+         I. FOOTER
+         ===================================================================== -->
+    <footer class="relative z-10 bg-secondary/70 border-t border-white/10 py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <!-- Brand & Credit -->
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-2.5 mb-2">
+                        <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-accent to-accent-light flex items-center justify-center text-white font-bold text-xs">GK</span>
+                        <span class="font-semibold text-white">Sistla Ganesh Karthikeya</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Designed &amp; Built by <span class="text-gray-200 font-medium">Sistla Ganesh Karthikeya</span>
+                    </p>
+                </div>
+
+                <!-- Footer Quick Links -->
+                <div class="flex flex-wrap items-center justify-center gap-5 text-sm text-gray-400">
+                    <a href="#home" class="hover:text-white transition-colors">Home</a>
+                    <a href="#about" class="hover:text-white transition-colors">About</a>
+                    <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                    <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                    <a href="#education" class="hover:text-white transition-colors">Education</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <!-- Footer Social Placeholder Icons -->
+                <div class="flex items-center gap-3">
+                    <button type="button" data-social="GitHub" aria-label="GitHub Placeholder" class="social-placeholder-btn p-2.5 rounded-xl bg-primary border border-white/10 text-gray-400 hover:text-white hover:border-accent/40 transition-colors cursor-pointer">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                    </button>
+                    <button type="button" data-social="LinkedIn" aria-label="LinkedIn Placeholder" class="social-placeholder-btn p-2.5 rounded-xl bg-primary border border-white/10 text-gray-400 hover:text-white hover:border-accent/40 transition-colors cursor-pointer">
+                        <i data-lucide="linkedin" class="w-4 h-4"></i>
+                    </button>
+                    <button type="button" data-social="Instagram" aria-label="Instagram Placeholder" class="social-placeholder-btn p-2.5 rounded-xl bg-primary border border-white/10 text-gray-400 hover:text-white hover:border-accent/40 transition-colors cursor-pointer">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </button>
+                    <button type="button" data-social="Email" aria-label="Email Placeholder" class="social-placeholder-btn p-2.5 rounded-xl bg-primary border border-white/10 text-gray-400 hover:text-white hover:border-accent/40 transition-colors cursor-pointer">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- =====================================================================
+         CUSTOM NON-INTRUSIVE TOAST NOTIFICATION (Replaces alert())
+         ===================================================================== -->
+    <div id="toastNotification" role="status" aria-live="polite"
+        class="fixed bottom-5 right-5 z-50 max-w-sm transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-card border-accent/40 rounded-2xl p-4 shadow-2xl flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-accent/20 text-accent-light flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="info" class="w-4 h-4"></i>
+            </div>
+            <div class="flex-1">
+                <h4 id="toastTitle" class="text-sm font-semibold text-white">Notification</h4>
+                <p id="toastMessage" class="text-xs text-gray-300 mt-0.5 leading-relaxed"></p>
+            </div>
+            <button id="closeToastBtn" type="button" aria-label="Close notification" class="text-gray-400 hover:text-white p-1">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         JAVASCRIPT: Icons, Typing Effect, Navigation, Form Validation & Download
+         ===================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Initialize Lucide Icons
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+            // 2. Toast Notification Helper (Replaces native alert())
+            const toastEl = document.getElementById('toastNotification');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastMessage = document.getElementById('toastMessage');
+            const closeToastBtn = document.getElementById('closeToastBtn');
+            let toastTimeout;
+
+            function showToast(title, message) {
+                toastTitle.textContent = title;
+                toastMessage.textContent = message;
+                toastEl.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+                toastEl.classList.add('translate-y-0', 'opacity-100');
+
+                clearTimeout(toastTimeout);
+                toastTimeout = setTimeout(() => {
+                    hideToast();
+                }, 4500);
+            }
+
+            function hideToast() {
+                toastEl.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+                toastEl.classList.remove('translate-y-0', 'opacity-100');
+            }
+
+            closeToastBtn.addEventListener('click', hideToast);
+
+            // 3. Animated Typing Effect in Hero Section
+            const roles = [
+                'Aspiring Software Developer',
+                'Python Programmer',
+                'Frontend Developer',
+                'Lifelong Learner'
+            ];
+            const typingElement = document.getElementById('typingText');
+            let roleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function typeEffect() {
+                const currentRole = roles[roleIndex];
+                
+                if (isDeleting) {
+                    typingElement.textContent = currentRole.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typingElement.textContent = currentRole.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                let typingSpeed = isDeleting ? 45 : 85;
+
+                if (!isDeleting && charIndex === currentRole.length) {
+                    typingSpeed = 1800; // Pause at end of phrase
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    typingSpeed = 350;
+                }
+
+                setTimeout(typeEffect, typingSpeed);
+            }
+            typeEffect();
+
+            // 4. Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuIconOpen = document.getElementById('menuIconOpen');
+            const menuIconClose = document.getElementById('menuIconClose');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            function toggleMobileMenu() {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                menuIconOpen.classList.toggle('hidden');
+                menuIconClose.classList.toggle('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', String(isHidden));
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        toggleMobileMenu();
+                    }
+                });
+            });
+
+            // 5. Scroll Reveal Animation using IntersectionObserver
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // 6. Active Navigation Highlight on Scroll
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let currentId = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120;
+                    if (window.scrollY >= sectionTop) {
+                        currentId = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white', 'bg-white/10');
+                    link.classList.add('text-gray-300');
+                    if (link.getAttribute('href') === `#${currentId}`) {
+                        link.classList.add('text-white', 'bg-white/10');
+                        link.classList.remove('text-gray-300');
+                    }
+                });
+            });
+
+            // 7. Honest Feedback for Placeholder Project & Social Buttons
+            document.querySelectorAll('.placeholder-project-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const projectName = btn.getAttribute('data-project');
+                    showToast(
+                        'Placeholder Project Slot',
+                        `"${projectName}" is currently a placeholder. Replace its URL inside index.html once your project repository is live.`
+                    );
+                });
+            });
+
+            document.querySelectorAll('.social-placeholder-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const platform = btn.getAttribute('data-social');
+                    showToast(
+                        `${platform} Placeholder`,
+                        `No fake ${platform} link was added. Edit index.html to insert your official ${platform} profile URL.`
+                    );
+                });
+            });
+
+            // 8. Contact Form Validation & Submission Handling
+            const contactForm = document.getElementById('contactForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const messageError = document.getElementById('messageError');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let isValid = true;
+
+                // Validate Name
+                if (nameInput.value.trim().length < 2) {
+                    nameError.classList.remove('hidden');
+                    isValid = false;
+                } else {
+                    nameError.classList.add('hidden');
+                }
+
+                // Validate Email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value.trim())) {
+                    emailError.classList.remove('hidden');
+                    isValid = false;
+                } else {
+                    emailError.classList.add('hidden');
+                }
+
+                // Validate Message
+                if (messageInput.value.trim().length < 10) {
+                    messageError.classList.remove('hidden');
+                    isValid = false;
+                } else {
+                    messageError.classList.add('hidden');
+                }
+
+                if (isValid) {
+                    showToast(
+                        'Message Validated!',
+                        `Thank you, ${nameInput.value.trim()}! Connect a form service (like Formspree or EmailJS) in index.html to receive live emails.`
+                    );
+                    contactForm.reset();
+                }
+            });
+
+            // 9. Direct Standalone index.html Download Button
+            const downloadHtmlBtn = document.getElementById('downloadHtmlBtn');
+            downloadHtmlBtn.addEventListener('click', () => {
+                try {
+                    const fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+                    const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'index.html';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(url);
+
+                    showToast(
+                        'Downloading index.html',
+                        'Your standalone portfolio file has been generated and downloaded.'
+                    );
+                } catch (err) {
+                    showToast(
+                        'Download Notice',
+                        'You can also save this page directly using Ctrl+S (or Cmd+S) as index.html.'
+                    );
+                }
+            });
+        });
+    </script>
+</body>
+</html>
